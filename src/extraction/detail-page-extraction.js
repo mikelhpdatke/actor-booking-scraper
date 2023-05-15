@@ -343,10 +343,10 @@ const extractDetailedRoomsInfo = () => {
 
         return occ1.length > 0 ? occ1.text() : occ2 || occ3;
     };
-    log.info("Extract detail row");
+    console.log("Evaluate row");
     // Iterate all table rows.
     const rows = $(".hprt-table > tbody > tr:not(.hprt-cheapest-block-row)");
-    log.info("list rows", rows);
+    console.log("Get rooms", rows);
     for (let i = 0; i < rows.length; i++) {
         const row = rows.eq(i);
         const roomRow = row.find(".hprt-table-cell-roomtype");
