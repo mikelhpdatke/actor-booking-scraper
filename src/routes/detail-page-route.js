@@ -48,6 +48,7 @@ module.exports.handleDetailPage = async (context, globalContext) => {
     validateProxy(page, session, startUrls, "label");
 
     // Exit if core data is not present or the rating is too low.
+    console.log("Check ld", ld, minScore);
     if (
         !ld ||
         (minScore &&

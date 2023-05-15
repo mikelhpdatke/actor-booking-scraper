@@ -345,7 +345,7 @@ const extractDetailedRoomsInfo = () => {
 
     // Iterate all table rows.
     const rows = $(".hprt-table > tbody > tr:not(.hprt-cheapest-block-row)");
-    console.log("rows test");
+    console.log("rows test", rows);
     for (let i = 0; i < rows.length; i++) {
         const row = rows.eq(i);
         const roomRow = row.find(".hprt-table-cell-roomtype");
