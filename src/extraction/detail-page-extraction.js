@@ -39,7 +39,7 @@ module.exports.extractDetail = async (page, ld, input, userData) => {
     const checkInTo = await page.$$eval("#checkin_policy [data-until]", (el) =>
         el.length > 0 ? el[0].getAttribute("data-until") : null
     );
-
+    console.log("Start get rooms");
     const rooms = await extractRoomsInfo(page, input);
 
     return {
@@ -228,9 +228,10 @@ const extractUserReviews = async (page) => {
 
 const extractRoomsInfo = async (page, { checkIn, checkOut }) => {
     if (checkIn && checkOut) {
+        console.log("has checkin checkout");
         return page.evaluate(extractDetailedRoomsInfo);
     }
-
+    console.log("no checkin checkout");
     return page.evaluate(extractSimpleRoomsInfo);
 };
 
@@ -345,7 +346,7 @@ const extractDetailedRoomsInfo = () => {
 
     // Iterate all table rows.
     const rows = $(".hprt-table > tbody > tr:not(.hprt-cheapest-block-row)");
-    console.log("rows test", rows);
+    log.info("list rows", rows);
     for (let i = 0; i < rows.length; i++) {
         const row = rows.eq(i);
         const roomRow = row.find(".hprt-table-cell-roomtype");
