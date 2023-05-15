@@ -343,7 +343,7 @@ const extractDetailedRoomsInfo = () => {
 
         return occ1.length > 0 ? occ1.text() : occ2 || occ3;
     };
-
+    log.info("Extract detail row");
     // Iterate all table rows.
     const rows = $(".hprt-table > tbody > tr:not(.hprt-cheapest-block-row)");
     log.info("list rows", rows);
